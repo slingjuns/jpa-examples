@@ -10,7 +10,7 @@ public class EmployeeHibernateRepo {
     private final EntityManager entityManager;
 
     @Autowired
-    public EmployeeHibernateRepo (EntityManager entityManager){
+    public EmployeeHibernateRepo(EntityManager entityManager){
         this.entityManager = entityManager;
     }
 
@@ -19,13 +19,13 @@ public class EmployeeHibernateRepo {
         return entityManager.find(Employee.class, employeeId);
     }
 
-    public Long createEmployee(Employee e){
-        entityManager.persist(e);
-        return e.getId();
+    public Long createEmployee(Employee employee){
+        entityManager.persist(employee);
+        return employee.getId();
     }
 
-    public Long updateEmployee(Employee e){
-        return entityManager.merge(e).getId();
+    public Long updateEmployee(Employee employee){
+        return entityManager.merge(employee).getId();
     }
 
     public void deleteEmployee(Long employeeId){

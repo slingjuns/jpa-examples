@@ -44,4 +44,13 @@ public class HibernateController {
         return this.hibernateService.findDepartmentById(id);
     }
 
+    @PostMapping("/departments/")
+    public Long createDepartment(@RequestBody Department department){
+        return this.hibernateService.createDepartment(department);
+    }
+
+    @PutMapping("/departments/")
+    public Long updateDepartment(@RequestBody Department department){
+        return this.hibernateService.updateDepartment(department);
+    }
 }

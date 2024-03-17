@@ -17,4 +17,14 @@ public class DepartmentHibernateRepo{
     public Department findByID(Long departmentId){
         return entityManager.find(Department.class, departmentId);
     }
+
+    public Long createDepartment(Department department){
+        entityManager.persist(department);
+        return department.getId();
+    }
+
+    public Long updateDepartment(Department department) {
+        entityManager.merge(department);
+        return department.getId();
+    }
 }

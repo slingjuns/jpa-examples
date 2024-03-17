@@ -2,15 +2,17 @@ package com.example.jpaexamples.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
 @Table(name="Department")
 public class Department {
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column
     private String name;
     @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)

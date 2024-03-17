@@ -39,4 +39,12 @@ public class HibernateService {
     public Department findDepartmentById(Long id){
         return this.departmentRepo.findByID(id);
     }
+
+    public Long createDepartment(Department department) {
+        return departmentRepo.createDepartment(department);
+    }
+
+    public Long updateDepartment(Department department) {
+        return departmentRepo.updateDepartment(department);
+    }
 }
